@@ -1,0 +1,1 @@
+result = str.at(i) + count;

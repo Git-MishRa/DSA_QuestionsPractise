@@ -13,12 +13,13 @@ int main()
     cin >> d;
     for (int i = 0; i < n; i++)
     {
-        while (arr[i] == d)
+        if (arr[i] == d)
         {
-            count++;
             end = i;
+            count++;
         }
     }
-    cout << end - count << "    " << end;
+    cout << end - count + 1 << endl
+         << end;
     return 0;
 }
