@@ -1,1 +1,4 @@
-result = str.at(i) + count;
+  }
+        // count = 0;
+    }
+    cout << res
