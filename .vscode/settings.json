@@ -3,7 +3,14 @@
     "*.js": "javascriptreact",
     "iostream": "cpp",
     "xstring": "cpp",
-    "string": "cpp"
+    "string": "cpp",
+    "stack": "cpp",
+    "deque": "cpp",
+    "initializer_list": "cpp",
+    "queue": "cpp",
+    "type_traits": "cpp",
+    "vector": "cpp",
+    "xutility": "cpp"
   },
   "C_Cpp.errorSquiggles": "Enabled"
 }
