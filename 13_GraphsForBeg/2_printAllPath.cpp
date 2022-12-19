@@ -16,28 +16,29 @@ public:
     }
 };
 
-bool hasPath(vector<Edge> graph[], int src, int dest, bool visited[])
+void hasPath(vector<Edge> graph[], int src, int dest, bool visited[], string psf)
 {
     // base case
     if (src == dest)
     {
-        return true;
+        psf += to_string(src);
+        cout << psf << endl;
     }
     // marking visited
     visited[src] = true;
+
+    // adding the current vertice
+    psf += to_string(src);
     //
     for (Edge edge : graph[src])
     {
         if (!visited[edge.nbr]) // visited[edge.nbr]==false not working
         {
-            bool hasNbrPath = hasPath(graph, edge.nbr, dest, visited);
-            if (hasNbrPath)
-            {
-                return true;
-            }
+            hasPath(graph, edge.nbr, dest, visited, psf);
         }
     }
-    return false;
+    visited[src] = false;
+    return;
 }
 
 int main()
@@ -64,12 +65,6 @@ int main()
     cin >> dest;
     // write your code here
     bool visited[vtces];
-    if (hasPath(graph, src, dest, visited))
-    {
-        cout << "true";
-    }
-    else
-    {
-        cout << "false";
-    }
+    string psf = "";
+    hasPath(graph, src, dest, visited, psf);
 }

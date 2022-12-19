@@ -1,11 +1,9 @@
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 int main()
 {
-    string st = "";
-    st += 10 + " ";
-    cout << st;
     return 0;
 }

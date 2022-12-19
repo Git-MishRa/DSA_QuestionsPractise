@@ -10,7 +10,8 @@
     "queue": "cpp",
     "type_traits": "cpp",
     "vector": "cpp",
-    "xutility": "cpp"
+    "xutility": "cpp",
+    "utility": "cpp"
   },
   "C_Cpp.errorSquiggles": "Enabled"
 }

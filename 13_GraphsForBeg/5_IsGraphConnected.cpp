@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 class Edge
 {
@@ -16,28 +15,17 @@ public:
     }
 };
 
-bool hasPath(vector<Edge> graph[], int src, int dest, bool visited[])
+void connected(vector<Edge> graph[], bool visited[], vector<int> &comp, int src)
 {
-    // base case
-    if (src == dest)
-    {
-        return true;
-    }
-    // marking visited
     visited[src] = true;
-    //
-    for (Edge edge : graph[src])
+    comp.push_back(src);
+    for (Edge e : graph[src])
     {
-        if (!visited[edge.nbr]) // visited[edge.nbr]==false not working
+        if (!visited[e.nbr])
         {
-            bool hasNbrPath = hasPath(graph, edge.nbr, dest, visited);
-            if (hasNbrPath)
-            {
-                return true;
-            }
+            connected(graph, visited, comp, e.nbr);
         }
     }
-    return false;
 }
 
 int main()
@@ -58,18 +46,20 @@ int main()
         graph[v2].push_back(Edge(v2, v1, wt));
     }
 
-    int src;
-    cin >> src;
-    int dest;
-    cin >> dest;
+    vector<vector<int>> comps;
+
     // write your code here
     bool visited[vtces];
-    if (hasPath(graph, src, dest, visited))
+    for (int i = 0; i < vtces; i++)
     {
-        cout << "true";
+        if (!visited[i])
+        {
+            vector<int> comp;
+            connected(graph, visited, comp, i);
+            comps.push_back(comp);
+        }
     }
-    else
-    {
-        cout << "false";
-    }
+
+    comps.size() == 1 ? cout << "true" : cout << "false";
+    return 0;
 }
